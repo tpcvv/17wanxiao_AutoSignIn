@@ -127,7 +127,7 @@ def WechatPush(title, sckey, success, fail, result):
     strTime = GetNowTime()
     if fail is None:
        fail = ["我见青山多妩媚"]
-       fail = ''.join(fai)
+       fail = ''.join(fail)
     page = json.dumps(result, sort_keys=True, indent=4, separators=(',', ':'), ensure_ascii=False)
     content = [f"""`{strTime}`
 #### 打卡成功用户:
