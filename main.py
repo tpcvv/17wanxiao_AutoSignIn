@@ -126,13 +126,13 @@ def WechatPush(title, sckey, success, fail, result):
     send_url = f"https://sc.ftqq.com/{sckey}.send"
     strTime = GetNowTime()
     if fail == None:
-       fail = ["我见那青山多妩媚"]
+       fail = ["我见青山多妩媚"].text()
     page = json.dumps(result, sort_keys=True, indent=4, separators=(',', ':'), ensure_ascii=False)
     content = [f"""`{strTime}`
 #### 打卡成功用户:
 `{success}`
 #### 打卡失败用户:
-`{fail.text}`
+`{fail}`
 #### 主用户打卡信息:
 ```
 {page}
