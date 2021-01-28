@@ -20,8 +20,8 @@ def main():
             break
     # 提交打卡
     count, msg, run = 0, "null", False
-    print("-----------------------")
     for index, value in enumerate(phone):
+        print("-----------------------")
         print("开始获取用户%s信息" % (value[-4:]))
         while count < 3:
             try:
