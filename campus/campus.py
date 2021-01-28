@@ -44,7 +44,7 @@ class CampusCard:
             'exchangeFlag': True,
             'login': False,
             'serverPublicKey': '',
-            'deviceId': 868146026942328,
+            'deviceId': 863940046207257,
             'wanxiaoVersion': 10531102,
             'rsaKey': {
                 'private': rsa_keys[1],
