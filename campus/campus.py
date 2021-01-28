@@ -36,6 +36,7 @@ class CampusCard:
         当传入的已登录设备信息不可用时，虚拟一个空的未登录设备
         :return: 空设备信息
         """
+
         rsa_keys = rsa.create_key_pair(1024)
         return {
             'appKey': '',

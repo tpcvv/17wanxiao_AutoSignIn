@@ -41,6 +41,7 @@ def main():
                     msg = value[-4:] + "-失败-" + strTime
                     count = count + 1
                     print('%s打卡失败，开始第%d次重试...' % (value[-6:], count))
+                    result = res
                     time.sleep(301)
 
             except Exception as err:
