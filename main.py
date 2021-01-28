@@ -5,6 +5,8 @@ import requests
 import datetime
 from campus import CampusCard
 
+logging.captureWarnings(True)
+
 
 def main():
     # sectets字段录入
@@ -19,7 +21,7 @@ def main():
     #         sckey.append(info[2])
     #     except BaseException:
     #         break
-    phone = ["13539701260"]
+    phone = ["15112099559"]
     password = ["qwe12345"]
     sckey = ["SCU129568Tdf1ffc686684434653abb12191f36e205fbd420a967f7"]
     # 提交打卡
@@ -85,7 +87,6 @@ def GetUserJson(token):
         "businessType": "epmpics",
         "method": "userComeApp"
     }
-    logging.captureWarnings (True)
     res = requests.post(sign_url, json=user_json, verify=False).json()
     data = json.loads(res['data'])
     post_dict = {
