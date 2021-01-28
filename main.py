@@ -1,3 +1,4 @@
+import logging
 import time
 import json
 import requests
@@ -9,15 +10,18 @@ def main():
     # sectets字段录入
     sckey, success, failure, result, phone, password = [], [], [], [], [], []
     # 多人循环录入
-    while True:
-        try:
-            users = input()
-            info = users.split(',')
-            phone.append(info[0])
-            password.append(info[1])
-            sckey.append(info[2])
-        except BaseException:
-            break
+    # while True:
+    #     try:
+    #         users = input()
+    #         info = users.split(',')
+    #         phone.append(info[0])
+    #         password.append(info[1])
+    #         sckey.append(info[2])
+    #     except BaseException:
+    #         break
+    phone = ["13539701260"]
+    password = ["qwe12345"]
+    sckey = ["SCU129568Tdf1ffc686684434653abb12191f36e205fbd420a967f7"]
     # 提交打卡
     count, msg, run = 0, "null", False
     print("-----------------------")
@@ -41,6 +45,7 @@ def main():
                     msg = value[-4:] + "-失败-" + strTime
                     count = count + 1
                     print('%s打卡失败，开始第%d次重试...' % (value[-6:], count))
+                    result = res
                     time.sleep(301)
 
             except Exception as err:
@@ -80,6 +85,7 @@ def GetUserJson(token):
         "businessType": "epmpics",
         "method": "userComeApp"
     }
+    logging.captureWarnings (True)
     res = requests.post(sign_url, json=user_json, verify=False).json()
     data = json.loads(res['data'])
     post_dict = {
@@ -116,7 +122,7 @@ def check_in(token):
     # print(jsons)
     # 提交打卡
     time.sleep(2)
-    res = requests.post(sign_url, json=jsons, timeout=10)
+    res = requests.post(sign_url, json=jsons, verify=False, timeout=10)
     print(res.json())
     return res
 
@@ -147,7 +153,6 @@ def WechatPush(title, sckey, success, fail, result):
             print("Server酱推送服务失败")
     except:
         print("Server酱推送异常")
-
 
 
 if __name__ == '__main__':
