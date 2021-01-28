@@ -149,5 +149,6 @@ def WechatPush(title, sckey, success, fail, result):
         print("Server酱推送异常")
 
 
+
 if __name__ == '__main__':
     main()
